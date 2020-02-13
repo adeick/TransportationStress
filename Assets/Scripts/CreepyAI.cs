@@ -9,12 +9,15 @@ public class CreepyAI : MonoBehaviour
     [SerializeField] float stoppingRange = 5f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
-    
+    private Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class CreepyAI : MonoBehaviour
             navMeshAgent.SetDestination(target.position);
         }   
         else{
+            anim.SetBool("Idle", true);
             navMeshAgent.ResetPath();
         }
     }
