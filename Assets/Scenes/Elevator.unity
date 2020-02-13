@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.2
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.06666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -472,8 +472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndingPosition: {x: 8.437717, y: 1.242901, z: -0.334}
-  openDelay: 2
-  closeDelay: 6
+  openDelay: 22
+  closeDelay: 26
   speed: 1
 --- !u!1 &425703235
 GameObject:
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd1bd009d28d3642a7645d0d7804139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProgrammingTable: 00000100000000000000000000000000
+  ProgrammingTable: 00000000000000000000000000000000
   onColor: {r: 1, g: 0, b: 0, a: 1}
   offColor: {r: 0.16037738, g: 0.07186722, b: 0.07186722, a: 1}
 --- !u!136 &539373414
@@ -1350,12 +1350,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   josh: {fileID: 872718995}
   joshAnimator: {fileID: 52299461}
-  joshWalkDelay: 1.5
-  joshDestroyDelay: 10
+  joshWalkDelay: 21.5
+  joshDestroyDelay: 30
   louise: {fileID: 891220462}
   louiseAnimator: {fileID: 1018255713}
-  louiseWalkDelay: 3.5
-  louiseDestroyDelay: 10
+  louiseWalkDelay: 23.5
+  louiseDestroyDelay: 30
 --- !u!1 &687980598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,8 +1972,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndingPosition: {x: 8.437717, y: 1.242901, z: 0.706}
-  openDelay: 1
-  closeDelay: 7
+  openDelay: 21
+  closeDelay: 27
   speed: 1
 --- !u!1001 &877528844
 PrefabInstance:
@@ -2385,7 +2385,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.2
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd1bd009d28d3642a7645d0d7804139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProgrammingTable: 00000100000000000000000000000000
+  ProgrammingTable: 00000000000000000000000000000000
   onColor: {r: 1, g: 0, b: 0, a: 1}
   offColor: {r: 0.16037738, g: 0.07186722, b: 0.07186722, a: 1}
 --- !u!136 &1060273674
@@ -4001,7 +4001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd1bd009d28d3642a7645d0d7804139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProgrammingTable: 00000100000000000000000000000000
+  ProgrammingTable: 00000000000000000000000000000000
   onColor: {r: 1, g: 0, b: 0, a: 1}
   offColor: {r: 0.16037738, g: 0.07186722, b: 0.07186722, a: 1}
 --- !u!136 &1425239639
@@ -4271,7 +4271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd1bd009d28d3642a7645d0d7804139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProgrammingTable: 00000100000000000000000000000000
+  ProgrammingTable: 00000000000000000000000000000000
   onColor: {r: 1, g: 0, b: 0, a: 1}
   offColor: {r: 0.16037738, g: 0.07186722, b: 0.07186722, a: 1}
 --- !u!136 &1480975924
@@ -6314,7 +6314,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9ba6cf768b641ff4fa60c43140835ac7, type: 2}
+  - {fileID: 2100000, guid: 0655b6789499d2e4b9df3e2a7cf02f05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7120,7 +7120,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdf3699c5340c3a46b4401f4af6eadc5, type: 2}
+  - {fileID: 2100000, guid: 24697ffd9a5efda4e8cbc07dd143799f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7300,8 +7300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb86e5cf4e1f1884aa97a849373418eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1068872406}
-  stoppingRange: 0
+  target: {fileID: 963194228}
+  stoppingRange: 1
 --- !u!195 &2836630322248193857
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7316,11 +7316,11 @@ NavMeshAgent:
   m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 5
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.76
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -7517,7 +7517,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e07f52cefd05a4a43a5ba7dd236eef44, type: 2}
+  - {fileID: 2100000, guid: 686a958431f13034fbbe88142b476fdf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7770,7 +7770,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2bf7faff1353d7f46a3d455606379ffc, type: 2}
+  - {fileID: 2100000, guid: 8e4c63dfe09e4424c9b76241783e2c70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8173,7 +8173,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 27a1cef2462d2f1478c7f6785f4e174b, type: 2}
+  - {fileID: 2100000, guid: b62fc83e877ad6241a8a7b85f9420382, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8353,7 +8353,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e07f52cefd05a4a43a5ba7dd236eef44, type: 2}
+  - {fileID: 2100000, guid: 63702974318f0164aba6c42547707c8e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9141,7 +9141,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e07f52cefd05a4a43a5ba7dd236eef44, type: 2}
+  - {fileID: 2100000, guid: 686a958431f13034fbbe88142b476fdf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9273,7 +9273,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e8402a234b8d4e243b91ea15223c5adb, type: 2}
+  - {fileID: 2100000, guid: 9fdf6deb555679542b749ad65a976782, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9483,7 +9483,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 461ef31a3c7706f43865995d5b751ebb, type: 2}
+  - {fileID: 2100000, guid: 4d576e94ac2fdb745993ad5066befc75, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -34,11 +34,14 @@ public class SevenSegmentDisplay : MonoBehaviour
             mesh.material.color = offColor;
         }
 
-        if(floorLevel > 0){
-            Invoke("Count", 2f);
+        if (floorLevel == 7) {
+            Invoke("Count", 10f);
+        }
+        else if(floorLevel > 0){
+            Invoke("Count", 3f);
         }
         else{
-            Invoke("Basement", 2f);
+            Invoke("Basement", 3f);
         }
     }
 
