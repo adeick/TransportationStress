@@ -28,7 +28,7 @@ public class CreepyAIElevator : MonoBehaviour
         if(distanceToTarget > stoppingRange && !idle){
             navMeshAgent.SetDestination(target.position);
         }   
-        else{
+        else if(!idle){
             idle = true;
             anim.SetBool("Idle", true);
             navMeshAgent.ResetPath();

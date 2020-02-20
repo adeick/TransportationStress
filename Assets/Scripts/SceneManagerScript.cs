@@ -12,14 +12,20 @@ public class SceneManagerScript : MonoBehaviour
     public Animator louiseAnimator;
     [SerializeField] private float louiseWalkDelay = 3f;
     [SerializeField] private float louiseDestroyDelay = 10f;
+    [SerializeField] private GameObject kate;
+    public Animator kateAnimator;
+    [SerializeField] private float kateWalkDelay = 3f;
+    [SerializeField] private float kateDestroyDelay = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke("JoshLeaveElevator", joshWalkDelay);
         Invoke("LouiseLeaveElevator", louiseWalkDelay);
+        Invoke("KateLeaveElevator", kateWalkDelay);
         Destroy(josh, joshDestroyDelay);
         Destroy(louise, louiseDestroyDelay);
+        Destroy(kate, kateDestroyDelay);
     }
 
     // Update is called once per frame
@@ -36,5 +42,9 @@ public class SceneManagerScript : MonoBehaviour
     public void LouiseLeaveElevator()
     {
         louiseAnimator.SetTrigger("LeaveElevator");
+    }
+    public void KateLeaveElevator()
+    {
+        kateAnimator.SetTrigger("LeaveElevator");
     }
 }

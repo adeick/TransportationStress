@@ -6,8 +6,9 @@ public class ElevatorMovement : MonoBehaviour
 {
         
     [SerializeField] Vector3 EndingPosition;
-    [SerializeField] float openDelay = 5f;
+    [SerializeField] float openDelay1 = 5f;
     [SerializeField] float closeDelay = 10f;
+    [SerializeField] float openDelay2 = 30f;
     [SerializeField] float speed = 3f;
     bool doorsOpening = false;
     bool doorsClosing = false;
@@ -18,8 +19,9 @@ public class ElevatorMovement : MonoBehaviour
     void Start()
     {
         StartingPosition = transform.position;
-        Invoke("OpenDoors", openDelay);
+        Invoke("OpenDoors", openDelay1);
         Invoke("CloseDoors", closeDelay);
+        Invoke("CloseDoors", openDelay2);
     }
 
     // Update is called once per frame
