@@ -10,6 +10,7 @@ public class CreepyAI : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
+    private bool idle = false;
 
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class CreepyAI : MonoBehaviour
     void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if(distanceToTarget > stoppingRange){
+        if(distanceToTarget > stoppingRange && !idle){
             navMeshAgent.SetDestination(target.position);
         }   
         else{
@@ -32,6 +33,8 @@ public class CreepyAI : MonoBehaviour
             navMeshAgent.ResetPath();
         }
     }
+
+
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, stoppingRange);
