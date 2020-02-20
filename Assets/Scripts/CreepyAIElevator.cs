@@ -8,11 +8,12 @@ public class CreepyAIElevator : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float stoppingRange = 5f;
     [SerializeField] float tedWalkDelay = 20f;
+    [SerializeField] float tedLeaveDelay = 60f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
     private bool pursuit = false;
-    private bool idle = false;
+    
 
 
     // Start is called before the first frame update
@@ -20,7 +21,8 @@ public class CreepyAIElevator : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        Invoke("LeaveElevator", 30f);
+        Invoke("LeaveElevator", tedLeaveDelay);
+        Invoke("Pursue", tedWalkDelay);
     }
 
     // Update is called once per frame
@@ -32,15 +34,15 @@ public class CreepyAIElevator : MonoBehaviour
         }   
         else if(pursuit){
             pursuit = false;
-            anim.SetTrigger("Idle");
             navMeshAgent.ResetPath();
-            Invoke("TurnAround", 1f);
+            anim.applyRootMotion = true;
+            anim.SetTrigger("TurnAround");
         }
     }
 
-    public void TurnAround(){
-        anim.SetTrigger("TurnAround");
-    }
+    // public void TurnAround(){
+    //     anim.SetTrigger("TurnAround");
+    // }
 
     public void LeaveElevator(){
         anim.SetTrigger("LeaveElevator");

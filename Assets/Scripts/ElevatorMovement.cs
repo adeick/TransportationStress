@@ -21,7 +21,7 @@ public class ElevatorMovement : MonoBehaviour
         StartingPosition = transform.position;
         Invoke("OpenDoors", openDelay1);
         Invoke("CloseDoors", closeDelay);
-        Invoke("CloseDoors", openDelay2);
+        Invoke("OpenDoors", openDelay2);
     }
 
     // Update is called once per frame
