@@ -7,9 +7,11 @@ public class CreepyAIElevator : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float stoppingRange = 5f;
+    [SerializeField] float tedWalkDelay = 20f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
+    private bool pursuit = false;
     private bool idle = false;
 
 
@@ -25,12 +27,12 @@ public class CreepyAIElevator : MonoBehaviour
     void Update()
     {
         distanceToTarget = Vector3.Distance(target.position, transform.position);
-        if(distanceToTarget > stoppingRange && !idle){
+        if(distanceToTarget > stoppingRange && pursuit){
             navMeshAgent.SetDestination(target.position);
         }   
-        else if(!idle){
-            idle = true;
-            anim.SetBool("Idle", true);
+        else if(pursuit){
+            pursuit = false;
+            anim.SetTrigger("Idle");
             navMeshAgent.ResetPath();
             Invoke("TurnAround", 1f);
         }
@@ -42,6 +44,10 @@ public class CreepyAIElevator : MonoBehaviour
 
     public void LeaveElevator(){
         anim.SetTrigger("LeaveElevator");
+    }
+
+    public void Pursue(){
+        pursuit = true;
     }
 
     void OnDrawGizmosSelected(){
