@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -4791504522942941401
-    second: Armature|Armature|mixamo.com|Layer0
+    second: Walking
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Armature|mixamo.com|Layer0
+      name: Walking
       takeName: Armature|Armature|mixamo.com|Layer0
       internalID: 0
       firstFrame: 0
@@ -101,6 +101,13 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips:
   - f1fd4eed7f063014287edd73a351ca51
+  - ee2f87253324924439278938136233cc
+  - fb27bb0d28c6b4242a0e9785ab2631ca
+  - 60ad4dc1581ab554fba083c37e035f05
+  - 843e33084ffad1a4cafccf0ce950b38d
+  - 34c7b6ee02240204cb967683a790bdc5
+  - ebca801bf847e924f8bc3eef87a82a25
+  - fedaf51ce1420954586f1aab6faca34b
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

@@ -34,6 +34,7 @@ public class CreepyAI : MonoBehaviour
         }
     }
 
+    
 
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
