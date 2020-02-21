@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,6 +7,7 @@ using UnityEngine.AI;
 public class CreepyAIElevator : MonoBehaviour
 {
     [SerializeField] Transform target;
+    [SerializeField] Transform exitTarget;
     [SerializeField] float stoppingRange = 5f;
     [SerializeField] float tedWalkDelay = 20f;
     [SerializeField] float tedLeaveDelay = 60f;
@@ -28,7 +30,8 @@ public class CreepyAIElevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceToTarget = Vector3.Distance(target.position, transform.position);
+        //distanceToTarget = Vector3.Distance(target.position, transform.position);
+        distanceToTarget = (float)Math.Sqrt(Math.Pow(target.position.x-transform.position.x, 2f) + Math.Pow(target.position.z-transform.position.z, 2f));
         if(distanceToTarget > stoppingRange && pursuit){
             navMeshAgent.SetDestination(target.position);
         }   
@@ -45,7 +48,10 @@ public class CreepyAIElevator : MonoBehaviour
     // }
 
     public void LeaveElevator(){
+        anim.applyRootMotion = false;
         anim.SetTrigger("LeaveElevator");
+        target = exitTarget;
+        pursuit = true;
     }
 
     public void Pursue(){

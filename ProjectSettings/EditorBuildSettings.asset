@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Elevator.unity
+    guid: f6ccef855e8cb7b4c88b1b0166bb9f39
+  - enabled: 1
+    path: Assets/Scenes/Platform.unity
+    guid: a1ff247fef9956243a09abe2907b1f90
+  - enabled: 1
+    path: Assets/Scenes/Train.unity
+    guid: bc0054f38ab97134c8e0a3dd8ede34ca
   m_configObjects: {}
