@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16004191, g: 0.1997729, b: 0.2787014, a: 1}
+  m_IndirectSpecularColor: {r: 0.17277041, g: 0.21589383, b: 0.29782853, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9855,7 +9855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndingPosition: {x: 27.22, y: 0, z: 4.65}
-  BrakingDistance: 31
+  BrakingDistance: -36.5
   enterDelay: 10
   speed: 40
   BrakeFactor: 0.98
