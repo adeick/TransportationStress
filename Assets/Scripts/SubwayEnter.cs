@@ -30,7 +30,7 @@ The train will stop under one of two conditions
     void Start()
     {
         Invoke("StartSubway", enterDelay);
-        BrakePoint = new Vector3(0, 0, BrakingDistance);
+        BrakePoint = new Vector3(BrakingDistance, 0, 0);
     }
 
     // Update is called once per frame
