@@ -11043,6 +11043,8 @@ MonoBehaviour:
   stoppingRange: 0.75
   tedWalkDelay: 20
   tedLeaveDelay: 60
+  lookBackDelay1: 6
+  lookBackDelay2: 13
 --- !u!195 &1780904618404717463
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11078,7 +11080,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d97a0e626ef85634397309014cac51e4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

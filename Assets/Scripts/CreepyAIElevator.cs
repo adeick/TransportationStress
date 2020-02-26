@@ -11,6 +11,8 @@ public class CreepyAIElevator : MonoBehaviour
     [SerializeField] float stoppingRange = 5f;
     [SerializeField] float tedWalkDelay = 20f;
     [SerializeField] float tedLeaveDelay = 60f;
+    [SerializeField] float lookBackDelay1 = 10f; //delay after ted turns around
+    [SerializeField] float lookBackDelay2 = 20f; 
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
@@ -23,6 +25,7 @@ public class CreepyAIElevator : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        anim.applyRootMotion = false;
         Invoke("LeaveElevator", tedLeaveDelay);
         Invoke("Pursue", tedWalkDelay);
     }
@@ -40,12 +43,18 @@ public class CreepyAIElevator : MonoBehaviour
             navMeshAgent.ResetPath();
             anim.applyRootMotion = true;
             anim.SetTrigger("TurnAround");
+            Invoke("GlanceBack", lookBackDelay1);
+            Invoke("GlanceBack", lookBackDelay2);
         }
     }
 
     // public void TurnAround(){
     //     anim.SetTrigger("TurnAround");
     // }
+
+    public void GlanceBack(){
+        anim.SetTrigger("LookBehind");
+    }
 
     public void LeaveElevator(){
         anim.applyRootMotion = false;
