@@ -53,12 +53,12 @@ public class CreepyAIElevator : MonoBehaviour
     // }
 
     public void GlanceBack1(){
-        anim.SetBool("LookBehindLeft", target.transform.localPosition.x < 0.4);
+        anim.SetBool("LookBehindLeft", target.transform.localPosition.x < 0);
         anim.SetTrigger("LookBehind");
     }
 
      public void GlanceBack2(){
-        anim.SetBool("LookBehindLeft", target.transform.localPosition.x < 0.4);
+        anim.SetBool("LookBehindLeft", target.transform.localPosition.x < 0);
         anim.SetTrigger("LookBehind");
     }
 
