@@ -7,6 +7,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 namespace Valve.VR.InteractionSystem
 {
@@ -262,6 +263,8 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private IEnumerator Start()
 		{
+			SceneManager.activeSceneChanged += ChangedActiveScene; //Andrew addition
+
 			_instance = this;
 
             while (SteamVR.initializedState == SteamVR.InitializedStates.None || SteamVR.initializedState == SteamVR.InitializedStates.Initializing)
@@ -296,7 +299,20 @@ namespace Valve.VR.InteractionSystem
                 }
             }
         }
+		//---v-- Andrew
+		private void ChangedActiveScene(Scene current, Scene next)
+		{
+			string currentName = current.name;
+			// change transform here
+			if (currentName == null)
+			{
+				// Scene1 has been removed
+				currentName = "Replaced";
+			}
 
+			Debug.Log("Scenes: " + currentName + ", " + next.name);
+		}
+		//--^^--- Andrew
 		//-------------------------------------------------
 		void OnDrawGizmos()
 		{
