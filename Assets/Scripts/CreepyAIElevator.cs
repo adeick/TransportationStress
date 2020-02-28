@@ -26,7 +26,7 @@ public class CreepyAIElevator : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         anim.applyRootMotion = false;
-        Invoke("LeaveElevator", tedLeaveDelay);
+        Invoke("LeaveElevator1", tedLeaveDelay);
         Invoke("Pursue", tedWalkDelay);
     }
 
@@ -43,8 +43,8 @@ public class CreepyAIElevator : MonoBehaviour
             navMeshAgent.ResetPath();
             anim.applyRootMotion = true;
             anim.SetTrigger("TurnAround");
-            Invoke("GlanceBack", lookBackDelay1);
-            Invoke("GlanceBack", lookBackDelay2);
+            Invoke("GlanceBack1", lookBackDelay1);
+            Invoke("GlanceBack2", lookBackDelay2);
         }
     }
 
@@ -52,13 +52,23 @@ public class CreepyAIElevator : MonoBehaviour
     //     anim.SetTrigger("TurnAround");
     // }
 
-    public void GlanceBack(){
+    public void GlanceBack1(){
+        anim.SetBool("LookBehindLeft", target.transform.localPosition.x < 0.4);
         anim.SetTrigger("LookBehind");
     }
 
-    public void LeaveElevator(){
-        anim.applyRootMotion = false;
+     public void GlanceBack2(){
+        anim.SetBool("LookBehindLeft", target.transform.localPosition.x < 0.4);
+        anim.SetTrigger("LookBehind");
+    }
+
+    public void LeaveElevator1(){
+        //anim.applyRootMotion = true; //shouldn't change anything 
         anim.SetTrigger("LeaveElevator");
+        Invoke("LeaveElevator2", 1.5f);
+    }
+    public void LeaveElevator2(){
+        anim.applyRootMotion = false;
         target = exitTarget;
         pursuit = true;
     }

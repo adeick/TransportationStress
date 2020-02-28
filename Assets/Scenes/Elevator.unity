@@ -313,6 +313,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kate
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2874f6d10799d594f8aea5a8241cbb69,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2874f6d10799d594f8aea5a8241cbb69, type: 3}
 --- !u!1001 &70803074
@@ -1087,7 +1092,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fe3b6df004b56634b856dcdb9dc6d678,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fe3b6df004b56634b856dcdb9dc6d678,
         type: 3}
@@ -1123,6 +1128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Louise
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fe3b6df004b56634b856dcdb9dc6d678,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe3b6df004b56634b856dcdb9dc6d678, type: 3}
@@ -1619,7 +1629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &526065730
 Transform:
   m_ObjectHideFlags: 0
@@ -2416,7 +2426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &599009066
 MonoBehaviour:
@@ -2436,7 +2446,7 @@ MonoBehaviour:
   joshDestroyDelay: 30
   louise: {fileID: 891220462}
   louiseAnimator: {fileID: 1018255713}
-  louiseWalkDelay: 23.5
+  louiseWalkDelay: 22.5
   louiseDestroyDelay: 30
   kate: {fileID: 2026224614}
   kateAnimator: {fileID: 2026224615}
@@ -2461,7 +2471,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3f72a53633d78a34e8da77eff25c8994,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.346192
+      value: 10.688
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3f72a53633d78a34e8da77eff25c8994,
         type: 3}
@@ -2532,6 +2542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: David
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3f72a53633d78a34e8da77eff25c8994,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f72a53633d78a34e8da77eff25c8994, type: 3}
@@ -5147,7 +5162,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 4f5325fdb3fbfa347b91c55de7e68f3b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4f5325fdb3fbfa347b91c55de7e68f3b,
         type: 3}
@@ -5183,6 +5198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Josh
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4f5325fdb3fbfa347b91c55de7e68f3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f5325fdb3fbfa347b91c55de7e68f3b, type: 3}
@@ -11041,10 +11061,10 @@ MonoBehaviour:
   target: {fileID: 463372445}
   exitTarget: {fileID: 846166854}
   stoppingRange: 0.75
-  tedWalkDelay: 20
-  tedLeaveDelay: 60
-  lookBackDelay1: 6
-  lookBackDelay2: 13
+  tedWalkDelay: 22
+  tedLeaveDelay: 80
+  lookBackDelay1: 5
+  lookBackDelay2: 17
 --- !u!195 &1780904618404717463
 NavMeshAgent:
   m_ObjectHideFlags: 0
