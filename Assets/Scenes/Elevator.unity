@@ -1159,6 +1159,12 @@ MonoBehaviour:
   closeDelay: 28
   openDelay2: 60
   speed: 1
+--- !u!1 &418733720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 250934991}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &425703235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,6 +3046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1020801545}
+  player: {fileID: 418733720}
 --- !u!65 &771263098
 BoxCollider:
   m_ObjectHideFlags: 0

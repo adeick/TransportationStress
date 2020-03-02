@@ -6,10 +6,12 @@ public class SceneShifter : MonoBehaviour
 {
 
     public Animator anim;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        //SceneManager.activeSceneChanged += ChangedActiveScene;
         DontDestroyOnLoad(transform.gameObject);
     }
 
@@ -28,7 +30,14 @@ public class SceneShifter : MonoBehaviour
     }
 
     private void SwitchScene() {
+        player.transform.position = new Vector3(12.5f,-0.745f,-4.186f);
         SceneManager.LoadScene("Platform");
         anim.SetTrigger("FadeIn");
     }
+
+    // private void ChangedActiveScene(Scene current, Scene next){
+    //     if(next.name == "Platform" || next.name == "Train"){
+    //         anim.SetTrigger("FadeOut");
+    //     }
+    // }
 }
