@@ -30,7 +30,9 @@ public class SceneShifter : MonoBehaviour
     }
 
     private void SwitchScene() {
-        player.transform.position = new Vector3(12.5f,-0.745f,-4.186f);
+        
+        player.transform.RotateAround(transform.position, transform.up, 180f);
+        player.transform.position = new Vector3(12.5f,-0.745f,-4.186f); // position for platform
         SceneManager.LoadScene("Platform");
         anim.SetTrigger("FadeIn");
     }
