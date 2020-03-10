@@ -19,7 +19,7 @@ public class SceneShifter : MonoBehaviour
     void Update()
     {
         
-    }
+    } 
 
     void OnTriggerEnter(Collider other){
 
