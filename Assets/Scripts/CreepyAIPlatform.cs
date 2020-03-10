@@ -12,6 +12,7 @@ public class CreepyAIPlatform : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
+    private bool pursuing = true;
     
 
 
@@ -20,7 +21,7 @@ public class CreepyAIPlatform : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        anim.applyRootMotion = false;
+        anim.updateRotation = true;
         target = GameObject.Find("VRCamera").transform;
     }
 
@@ -35,6 +36,7 @@ public class CreepyAIPlatform : MonoBehaviour
         }
         else{
             navMeshAgent.ResetPath();
+            anim.updateRotation = true;
         }
     }
 
