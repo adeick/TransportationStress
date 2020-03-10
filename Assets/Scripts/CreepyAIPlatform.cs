@@ -9,6 +9,8 @@ public class CreepyAIPlatform : MonoBehaviour
     private Transform target;
     [SerializeField] Transform exitTarget;
     [SerializeField] float stoppingRange = 1.2f;
+
+    [SerializeField] float turningSpeed = 5f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
@@ -21,7 +23,7 @@ public class CreepyAIPlatform : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        anim.updateRotation = true;
+        navMeshAgent.updateRotation = true;
         target = GameObject.Find("VRCamera").transform;
     }
 
@@ -36,10 +38,18 @@ public class CreepyAIPlatform : MonoBehaviour
         }
         else{
             navMeshAgent.ResetPath();
-            anim.updateRotation = true;
+            FaceTarget(target.position);
+            //transform.rotation.SetLookRotation(target.position - transform.position); 
+            //transform.rotation = Quaternion.Lerp(transform.rotation, rotationIncrement, Time.time * turningSpeed);
         }
     }
-
+    private void FaceTarget(Vector3 destination)
+    {
+        Vector3 lookPos = destination - transform.position;
+        lookPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
+    }
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, stoppingRange);
