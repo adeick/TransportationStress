@@ -30,14 +30,18 @@ public class CreepyAIPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
         //distanceToTarget = Vector3.Distance(target.position, transform.position);
         //Calculate distance without including y - value.
         distanceToTarget = (float) Math.Sqrt(Math.Pow(target.position.x - transform.position.x, 2f) + Math.Pow(target.position.z - transform.position.z, 2f));
         if(distanceToTarget > stoppingRange){
             navMeshAgent.SetDestination(target.position);
+            anim.SetBool("pursuit", true);
         }
         else{
             navMeshAgent.ResetPath();
+            anim.SetBool("pursuit", false);
             FaceTarget(target.position);
             //transform.rotation.SetLookRotation(target.position - transform.position); 
             //transform.rotation = Quaternion.Lerp(transform.rotation, rotationIncrement, Time.time * turningSpeed);
@@ -48,6 +52,12 @@ public class CreepyAIPlatform : MonoBehaviour
         Vector3 lookPos = destination - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
+        //Debug.Log(Quaternion.Angle(transform.rotation, rotation));
+        //Debug.Log(rotation);
+        //Debug.Log(transform.rotation);
+        float turnFactor = ((transform.rotation.y - rotation.y) * 100);
+        anim.SetFloat("TedTurn", 0);
+        //anim.SetFloat("TedTurn", turnFactor);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
     }
     void OnDrawGizmosSelected(){
