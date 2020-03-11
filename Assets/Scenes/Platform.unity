@@ -5352,6 +5352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitTarget: {fileID: 0}
   stoppingRange: 1.2
+  resumeRange: 3
   turningSpeed: 0.01
 --- !u!1 &989125002
 GameObject:
@@ -9580,7 +9581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4163613437866800, guid: 4a3e3d619290a354eb1f0b00faa6dc2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7181036
+      value: -1.718
       objectReference: {fileID: 0}
     - target: {fileID: 4163613437866800, guid: 4a3e3d619290a354eb1f0b00faa6dc2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9588,7 +9589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4163613437866800, guid: 4a3e3d619290a354eb1f0b00faa6dc2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 34.44812
+      value: 34.437
       objectReference: {fileID: 0}
     - target: {fileID: 4163613437866800, guid: 4a3e3d619290a354eb1f0b00faa6dc2b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12723,9 +12724,9 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 666fe31b977545e4d8abda487225f913, type: 3}
   m_Controller: {fileID: 9100000, guid: 3f0264a83e872df469547ec62769b5b1, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

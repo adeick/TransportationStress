@@ -9,8 +9,8 @@ public class CreepyAIPlatform : MonoBehaviour
     private Transform target;
     [SerializeField] Transform exitTarget;
     [SerializeField] float stoppingRange = 1.2f;
-
-    [SerializeField] float turningSpeed = 5f;
+    [SerializeField] float resumeRange = 3f;
+    [SerializeField] float turningSpeed = 0.01f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
@@ -23,7 +23,6 @@ public class CreepyAIPlatform : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        navMeshAgent.updateRotation = true;
         target = GameObject.Find("VRCamera").transform;
     }
 
@@ -35,16 +34,22 @@ public class CreepyAIPlatform : MonoBehaviour
         //distanceToTarget = Vector3.Distance(target.position, transform.position);
         //Calculate distance without including y - value.
         distanceToTarget = (float) Math.Sqrt(Math.Pow(target.position.x - transform.position.x, 2f) + Math.Pow(target.position.z - transform.position.z, 2f));
-        if(distanceToTarget > stoppingRange){
+        if(distanceToTarget > stoppingRange && pursuing){
+            anim.applyRootMotion = false;
             navMeshAgent.SetDestination(target.position);
             anim.SetBool("pursuit", true);
         }
-        else{
+        else if(distanceToTarget < resumeRange){
             navMeshAgent.ResetPath();
             anim.SetBool("pursuit", false);
+            anim.applyRootMotion = true;
             FaceTarget(target.position);
+            pursuing = false;
             //transform.rotation.SetLookRotation(target.position - transform.position); 
             //transform.rotation = Quaternion.Lerp(transform.rotation, rotationIncrement, Time.time * turningSpeed);
+        }
+        else{
+            pursuing = true;
         }
     }
     private void FaceTarget(Vector3 destination)
@@ -52,12 +57,14 @@ public class CreepyAIPlatform : MonoBehaviour
         Vector3 lookPos = destination - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
-        //Debug.Log(Quaternion.Angle(transform.rotation, rotation));
-        //Debug.Log(rotation);
-        //Debug.Log(transform.rotation);
-        float turnFactor = ((transform.rotation.y - rotation.y) * 100);
+        //                     //Debug.Log(Quaternion.Angle(transform.rotation, rotation));
+
+        //                     //Debug.Log(rotation.y + "  " + transform.rotation.y);
+        // float turnFactor = ((transform.rotation.y - rotation.y) * 100);
+                            
+        // anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -60f, 60f));
+
         anim.SetFloat("TedTurn", 0);
-        //anim.SetFloat("TedTurn", turnFactor);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
     }
     void OnDrawGizmosSelected(){
