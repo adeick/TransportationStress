@@ -57,15 +57,21 @@ public class CreepyAIPlatform : MonoBehaviour
         Vector3 lookPos = destination - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
-        //                     //Debug.Log(Quaternion.Angle(transform.rotation, rotation));
+        //Debug.Log(Quaternion.Angle( new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0,rotation.y, 0, rotation.w)));
 
         //                     //Debug.Log(rotation.y + "  " + transform.rotation.y);
-        // float turnFactor = ((transform.rotation.y - rotation.y) * 100);
+         float turnFactor = Quaternion.Angle( new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0,rotation.y, 0, rotation.w));
+         if(Quaternion.Slerp(transform.rotation, rotation, turningSpeed).y - transform.rotation.y < 0){
+             turnFactor *= -1;
+         }
                             
-        // anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -60f, 60f));
+        anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
 
-        anim.SetFloat("TedTurn", 0);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
+        //anim.SetFloat("TedTurn", 0);
+        //Debug.Log(Quaternion.Slerp(transform.rotation, rotation, turningSpeed).y - transform.rotation.y);  
+        if(turnFactor < 15 && turnFactor > -15){
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
+        }
     }
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;

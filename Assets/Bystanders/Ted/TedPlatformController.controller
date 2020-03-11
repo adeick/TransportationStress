@@ -62,16 +62,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: fedaf51ce1420954586f1aab6faca34b,
-      type: 3}
-    m_Threshold: -60
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: TedTurn
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 34c7b6ee02240204cb967683a790bdc5,
+    m_Motion: {fileID: -203655887218126122, guid: ebca801bf847e924f8bc3eef87a82a25,
       type: 3}
     m_Threshold: -30
     m_Position: {x: 0, y: 0}
@@ -89,7 +80,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: ebca801bf847e924f8bc3eef87a82a25,
+    m_Motion: {fileID: -203655887218126122, guid: 34c7b6ee02240204cb967683a790bdc5,
       type: 3}
     m_Threshold: 30
     m_Position: {x: 0, y: 0}
@@ -97,19 +88,10 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: fedaf51ce1420954586f1aab6faca34b,
-      type: 3}
-    m_Threshold: 60
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0.5
-    m_DirectBlendParameter: TedTurn
-    m_Mirror: 1
   m_BlendParameter: TedTurn
   m_BlendParameterY: Blend
-  m_MinThreshold: -60
-  m_MaxThreshold: 60
+  m_MinThreshold: -30
+  m_MaxThreshold: 30
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
