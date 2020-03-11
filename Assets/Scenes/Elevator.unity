@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc06f230aea0d84f9bd150a781ed979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyDelay: 60
+  destroyDelay: 50
   subway: {fileID: 676056332}
 --- !u!1 &529743310
 GameObject:
