@@ -59,33 +59,69 @@ public class CreepyAIPlatform : MonoBehaviour
         //Debug.Log(Quaternion.Angle( new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0,rotation.y, 0, rotation.w)));
 
         //                     //Debug.Log(rotation.y + "  " + transform.rotation.y);
-         float turnFactor = Quaternion.Angle( new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0,rotation.y, 0, rotation.w));
-         if(Quaternion.Slerp(transform.rotation, rotation, turningSpeed).y - transform.rotation.y < 0){
-             turnFactor *= -1;
-             if(!isTurning){
-                anim.SetBool("TurnLeftOrRight", false);
-            }
-         }
-         else{
+         
+         // get a "forward vector" for each rotation
+            var forwardA = rotation * Vector3.forward;
+            var forwardB = transform.rotation * Vector3.forward;
+        // get a numeric angle for each vector, on the X-Z plane (relative to world forward)
+            var angleA = Mathf.Atan2(forwardA.x, forwardA.z);
+            var angleB = Mathf.Atan2(forwardB.x, forwardB.z);
+
+        var angleDiff = Mathf.DeltaAngle( angleA, angleB );
+        angleDiff *= 57.2958f; //radians to degrees
+
+        if(angleDiff < 0){
             if(!isTurning){
                 anim.SetBool("TurnLeftOrRight", true);
             }
-         }
-        if(turnFactor < 120 && turnFactor > -120){
-            anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
+        }
+        else{
+            if(!isTurning){
+                anim.SetBool("TurnLeftOrRight", false);
+            }
+        }
+        if(angleDiff < 120 && angleDiff > -120){
+            anim.SetFloat("TedTurn", Mathf.Clamp(angleDiff, -30f, 30f));
             anim.ResetTrigger("TurnAround");
         }
         else{
             anim.SetFloat("TedTurn", 0);
             anim.SetTrigger("TurnAround");
-        }                    
-        //anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
-
-        //anim.SetFloat("TedTurn", 0);
-        Debug.Log(turnFactor);  
-        if(turnFactor < 15 && turnFactor > -15){
+        }   
+        Debug.Log(angleDiff);  
+        if(angleDiff < 15 && angleDiff > -15){
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
         }
+// old code (below)
+        //  float turnFactor = Quaternion.Angle( new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0,rotation.y, 0, rotation.w));
+
+        //  if(Quaternion.Slerp(transform.rotation, rotation, turningSpeed).y - transform.rotation.y < 0){
+        //      turnFactor *= -1;
+        //      if(!isTurning){
+        //         anim.SetBool("TurnLeftOrRight", false);
+        //     }
+        //  }
+        //  else{
+        //     if(!isTurning){
+        //         anim.SetBool("TurnLeftOrRight", true);
+        //     }
+        //  }
+        // if(turnFactor < 120 && turnFactor > -120){
+        //     anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
+        //     anim.ResetTrigger("TurnAround");
+        // }
+        // else{
+        //     anim.SetFloat("TedTurn", 0);
+        //     anim.SetTrigger("TurnAround");
+        // }                    
+        // //anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
+
+        // //anim.SetFloat("TedTurn", 0);
+        // Debug.Log(turnFactor);  
+        // if(turnFactor < 15 && turnFactor > -15){
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
+        // }
+
     }
     void StartTurn(){
         isTurning = true;
