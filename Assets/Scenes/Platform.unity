@@ -5350,9 +5350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd82bc9a7a87c24baf66128cc4067c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitTarget: {fileID: 0}
   stoppingRange: 1.2
-  resumeRange: 3
+  resumeRange: 2
   turningSpeed: 0.01
 --- !u!1 &989125002
 GameObject:
@@ -12726,7 +12725,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3f0264a83e872df469547ec62769b5b1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -12770,7 +12769,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.76
-  m_BaseOffset: 0
+  m_BaseOffset: -0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &944179697413010827

@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class CreepyAIPlatform : MonoBehaviour
 {
     private Transform target;
-    [SerializeField] Transform exitTarget;
     [SerializeField] float stoppingRange = 1.2f;
     [SerializeField] float resumeRange = 3f;
     [SerializeField] float turningSpeed = 0.01f;
@@ -15,7 +14,7 @@ public class CreepyAIPlatform : MonoBehaviour
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
     private bool pursuing = true;
-    
+    private bool isTurning = false;
 
 
     // Start is called before the first frame update
@@ -63,15 +62,38 @@ public class CreepyAIPlatform : MonoBehaviour
          float turnFactor = Quaternion.Angle( new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0,rotation.y, 0, rotation.w));
          if(Quaternion.Slerp(transform.rotation, rotation, turningSpeed).y - transform.rotation.y < 0){
              turnFactor *= -1;
+             if(!isTurning){
+                anim.SetBool("TurnLeftOrRight", false);
+            }
          }
-                            
-        anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
+         else{
+            if(!isTurning){
+                anim.SetBool("TurnLeftOrRight", true);
+            }
+         }
+        if(turnFactor < 120 && turnFactor > -120){
+            anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
+            anim.ResetTrigger("TurnAround");
+        }
+        else{
+            anim.SetFloat("TedTurn", 0);
+            anim.SetTrigger("TurnAround");
+        }                    
+        //anim.SetFloat("TedTurn", Mathf.Clamp(turnFactor, -30f, 30f));
 
         //anim.SetFloat("TedTurn", 0);
-        //Debug.Log(Quaternion.Slerp(transform.rotation, rotation, turningSpeed).y - transform.rotation.y);  
+        Debug.Log(turnFactor);  
         if(turnFactor < 15 && turnFactor > -15){
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
         }
+    }
+    void StartTurn(){
+        isTurning = true;
+        //Debug.Log("Turn started.");
+    }
+    void EndTurn(){
+        isTurning = false;
+        //Debug.Log("Turn ended.");
     }
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
