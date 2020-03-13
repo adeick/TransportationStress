@@ -22,7 +22,9 @@ public class CreepyAIPlatform : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        target = GameObject.Find("VRCamera").transform;
+        //target = GameObject.Find("VRCamera").transform;
+        target = GameObject.Find("FallbackObjects").transform;
+        
     }
 
     // Update is called once per frame
