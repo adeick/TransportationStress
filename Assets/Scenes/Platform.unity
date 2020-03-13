@@ -8269,7 +8269,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 8526388246355166518, guid: 666fe31b977545e4d8abda487225f913, type: 3}
+  m_Mesh: {fileID: 8526388246355166518, guid: 45a4fc995324f534cbe92e5f91d14210, type: 3}
   m_Bones:
   - {fileID: 276273111582447375}
   - {fileID: 1796285617505451363}
@@ -9139,7 +9139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941847327662920357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.653, y: -0.7385915, z: -4.799801}
+  m_LocalPosition: {x: 9.66, y: -0.7385915, z: -2.48}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 569510022175337272}
