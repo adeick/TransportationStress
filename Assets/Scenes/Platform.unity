@@ -1529,13 +1529,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb2d1ae9c00dea4d9b786af13693e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDelay: 0
+  openDelay: 15
   mirror: 0
-  speed1: 0.2
+  speed1: 0.25
   speed2: 0.4
   openZ1Offset: -0.2
   openZ2Offset: -0.1
-  rotationAngle: 30
+  rotationAngle: 12
   rotationSpeed: 0.3
   openX1Offset: -0.066515
   openX2Offset: 0.7
@@ -6016,13 +6016,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb2d1ae9c00dea4d9b786af13693e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDelay: 0
+  openDelay: 15
   mirror: 1
-  speed1: 0.2
+  speed1: 0.25
   speed2: 0.4
   openZ1Offset: -0.2
   openZ2Offset: -0.1
-  rotationAngle: 22
+  rotationAngle: 12
   rotationSpeed: 0.3
   openX1Offset: -0.066515
   openX2Offset: 0.7
