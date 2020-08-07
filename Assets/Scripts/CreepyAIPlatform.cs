@@ -22,7 +22,7 @@ public class CreepyAIPlatform : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        target = GameObject.Find("VRCamera").transform;
+        target = GameObject.Find("VRCamera").transform; //Will be a problem if can't find VRCamera
         //target = GameObject.Find("FallbackObjects").transform;
         
     }
@@ -34,7 +34,7 @@ public class CreepyAIPlatform : MonoBehaviour
         
         //distanceToTarget = Vector3.Distance(target.position, transform.position);
         //Calculate distance without including y - value.
-        distanceToTarget = (float) Math.Sqrt(Math.Pow(target.position.x - transform.position.x, 2f) + Math.Pow(target.position.z - transform.position.z, 2f));
+        distanceToTarget = (float) Math.Sqrt(Math.Pow(target.position.x - transform.position.x, 2f) + Math.Pow(target.position.z - transform.position.z, 2f)); //If VR Camera not found then trouble occurs
         if(distanceToTarget > stoppingRange && pursuing){
             anim.applyRootMotion = false;
             navMeshAgent.SetDestination(target.position);
