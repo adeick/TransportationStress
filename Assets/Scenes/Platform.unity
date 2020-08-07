@@ -811,6 +811,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7fe2fc83190791c479792ab279dfb089, type: 2}
+    - target: {fileID: 7268846415395775915, guid: 46ed2991ed0cc8b408b57b0969eab1ae,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268846415395775915, guid: 46ed2991ed0cc8b408b57b0969eab1ae,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268846415395775915, guid: 46ed2991ed0cc8b408b57b0969eab1ae,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268846415395775915, guid: 46ed2991ed0cc8b408b57b0969eab1ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268846415395775915, guid: 46ed2991ed0cc8b408b57b0969eab1ae,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7268846415395776084, guid: 46ed2991ed0cc8b408b57b0969eab1ae,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1504,12 +1529,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb2d1ae9c00dea4d9b786af13693e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDelay: 15
+  openDelay: 0
   mirror: 0
-  speed1: 0.3
-  speed2: 0.3
+  speed1: 0.2
+  speed2: 0.4
   openZ1Offset: -0.2
   openZ2Offset: -0.1
+  rotationAngle: 30
+  rotationSpeed: 0.3
   openX1Offset: -0.066515
   openX2Offset: 0.7
 --- !u!1001 &266236695
@@ -5989,12 +6016,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb2d1ae9c00dea4d9b786af13693e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDelay: 15
+  openDelay: 0
   mirror: 1
-  speed1: 0.3
-  speed2: 0.3
+  speed1: 0.2
+  speed2: 0.4
   openZ1Offset: -0.2
   openZ2Offset: -0.1
+  rotationAngle: 22
+  rotationSpeed: 0.3
   openX1Offset: -0.066515
   openX2Offset: 0.7
 --- !u!1001 &1653277133
