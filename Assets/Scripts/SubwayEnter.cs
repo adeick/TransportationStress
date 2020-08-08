@@ -5,7 +5,7 @@ using UnityEngine;
 public class SubwayEnter : MonoBehaviour
 {
 
-    [SerializeField] Vector3 EndingPosition; // The 3D coordinates of where you want the train to stop
+    [SerializeField] float travelDistance = 34.39f; // The 3D coordinates of where you want the train to stop
     [SerializeField] float BrakingDistance = 4f; //How far away from the EndingPosition the train should start to slow down
     [SerializeField] float enterDelay = 120f; // How many seconds until the train enters the subway
     [SerializeField] float speed = 20f; // How fast the train initially enters the subway
@@ -14,6 +14,7 @@ public class SubwayEnter : MonoBehaviour
     private bool isEntering = false;
     private bool isStopping = false;
     private Vector3 BrakePoint;
+    private Vector3 EndingPosition;
 
 /*
 The train enters at a set time (EnterDelay) and at a set speed (speed). It will start to slow down at BreakingDistance units 
@@ -31,6 +32,7 @@ The train will stop under one of two conditions
     {
         Invoke("StartSubway", enterDelay);
         BrakePoint = new Vector3(BrakingDistance, 0, 0);
+        EndingPosition = new Vector3(transform.position.x + travelDistance, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
