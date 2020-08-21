@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using System.Math;
+
 
 public class SubwayEnter : MonoBehaviour
 {
 
-    [SerializeField] float travelDistance = 34.39f; // The 3D coordinates of where you want the train to stop
-    [SerializeField] float BrakingDistance = 4f; //How far away from the EndingPosition the train should start to slow down
-    [SerializeField] float enterDelay = 120f; // How many seconds until the train enters the subway
-    [SerializeField] float speed = 20f; // How fast the train initially enters the subway
-    [SerializeField] float BrakeFactor = 0.8f; // How quickly the train brakes once reaching the Braking Distance. 
+    float finalXPosition = 15.54f; // The x coordinate of where you want the train to stop
+    float offsetXPosition = 10f; //How far away from the final position the train should start to slow down
+    float enterDelay = 120f; // How many seconds until the train enters the subway
+    float enterSpeed = 20f; // How fast the train initially enters the subway
+    float minimumSpeed = 2f; // The minimum speed the train can go after slowing down.
+    
+    [SerializeField] float BrakeFactor = 0.8f; // How quickly the braking engages from enterSpeed to minimumSpeed. 
                                                // 1 = no brake, 0 = immediate stop
     private bool isEntering = false;
     private bool isStopping = false;
@@ -31,15 +35,15 @@ The train will stop under one of two conditions
     void Start()
     {
         Invoke("StartSubway", enterDelay);
-        BrakePoint = new Vector3(BrakingDistance, 0, 0);
-        EndingPosition = new Vector3(transform.position.x + travelDistance, transform.position.y, transform.position.z);
+        BrakePoint = new Vector3(offsetXPosition, 0, 0);
+        EndingPosition = new Vector3(finalXPosition, transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(isEntering){
-            float step =  speed * Time.deltaTime; // calculate distance to move
+            float step =  enterSpeed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, EndingPosition + BrakePoint, step);
             if(EndingPosition + BrakePoint == transform.position){
              isEntering = false;
@@ -47,10 +51,10 @@ The train will stop under one of two conditions
             }
          }
          else if(isStopping){
-             speed *= BrakeFactor;
-             float step =  speed * Time.deltaTime; // calculate distance to move
+             enterSpeed *= BrakeFactor;
+             float step =  System.Math.Max(enterSpeed, minimumSpeed) * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, EndingPosition, step);
-            if(EndingPosition == transform.position || speed < 0.001){
+            if(EndingPosition == transform.position){
              isStopping = false;
             }
          }
