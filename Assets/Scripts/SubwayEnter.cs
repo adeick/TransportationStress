@@ -8,10 +8,10 @@ public class SubwayEnter : MonoBehaviour
 {
 
     float finalXPosition = 15.54f; // The x coordinate of where you want the train to stop
-    float offsetXPosition = 10f; //How far away from the final position the train should start to slow down
-    float enterDelay = 120f; // How many seconds until the train enters the subway
+    float offsetXPosition = 4f; //How far away from the final position the train should start to slow down
+    float enterDelay = 2f; // How many seconds until the train enters the subway
     float enterSpeed = 20f; // How fast the train initially enters the subway
-    float minimumSpeed = 2f; // The minimum speed the train can go after slowing down.
+    float minimumSpeed = 1f; // The minimum speed the train can go after slowing down.
     
     [SerializeField] float BrakeFactor = 0.8f; // How quickly the braking engages from enterSpeed to minimumSpeed. 
                                                // 1 = no brake, 0 = immediate stop
@@ -44,8 +44,8 @@ The train will stop under one of two conditions
     {
         if(isEntering){
             float step =  enterSpeed * Time.deltaTime; // calculate distance to move
-            transform.position = Vector3.MoveTowards(transform.position, EndingPosition + BrakePoint, step);
-            if(EndingPosition + BrakePoint == transform.position){
+            transform.position = Vector3.MoveTowards(transform.position, EndingPosition - BrakePoint, step);
+            if(EndingPosition - BrakePoint == transform.position){
              isEntering = false;
              isStopping = true;
             }
