@@ -9,7 +9,7 @@ public class SubwayEnter : MonoBehaviour
 
     float finalXPosition = 15.54f; // The x coordinate of where you want the train to stop
     float offsetXPosition = 4f; //How far away from the final position the train should start to slow down
-    float enterDelay = 2f; // How many seconds until the train enters the subway
+    float enterDelay = 20f; // How many seconds until the train enters the subway
     float enterSpeed = 20f; // How fast the train initially enters the subway
     float minimumSpeed = 1f; // The minimum speed the train can go after slowing down.
     
