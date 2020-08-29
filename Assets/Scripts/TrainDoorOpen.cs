@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrainDoorOpen : MonoBehaviour
 {
         
-    [SerializeField] float openDelay = 15f;
+    [SerializeField] float openDelay = 25f;
     [SerializeField] bool mirror = false;
     [SerializeField] float speed1 = .25f;
     [SerializeField] float speed2 = .4f;

@@ -10,13 +10,14 @@ public class CreepyAIPlatform : MonoBehaviour
     [SerializeField] float stoppingRange = 1.2f;
     [SerializeField] float resumeRange = 3f;
     [SerializeField] float turningSpeed = 0.01f;
+    [SerializeField] float delayUntilBoarding = 20f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     private Animator anim;
     private bool pursuing = true;
     private bool isTurning = false;
-
-
+    private bool contact = false;
+    private bool boarding = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,34 +25,45 @@ public class CreepyAIPlatform : MonoBehaviour
         anim = GetComponent<Animator>();
         target = GameObject.Find("VRCamera").transform; //Will be a problem if can't find VRCamera
         //target = GameObject.Find("FallbackObjects").transform;
-        
+        Invoke("BoardTrain", delayUntilBoarding);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
-        //distanceToTarget = Vector3.Distance(target.position, transform.position);
-        //Calculate distance without including y - value.
-        distanceToTarget = (float) Math.Sqrt(Math.Pow(target.position.x - transform.position.x, 2f) + Math.Pow(target.position.z - transform.position.z, 2f)); //If VR Camera not found then trouble occurs
-        if(distanceToTarget > stoppingRange && pursuing){
-            anim.applyRootMotion = false;
+        if(boarding){
             navMeshAgent.SetDestination(target.position);
-            anim.SetBool("pursuit", true);
-        }
-        else if(distanceToTarget < resumeRange){
-            navMeshAgent.ResetPath();
-            anim.SetBool("pursuit", false);
-            anim.applyRootMotion = true;
-            FaceTarget(target.position);
-            pursuing = false;
-            //transform.rotation.SetLookRotation(target.position - transform.position); 
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotationIncrement, Time.time * turningSpeed);
         }
         else{
-            pursuing = true;
+            //distanceToTarget = Vector3.Distance(target.position, transform.position);
+            //Calculate distance without including y - value.
+            distanceToTarget = (float) Math.Sqrt(Math.Pow(target.position.x - transform.position.x, 2f) + Math.Pow(target.position.z - transform.position.z, 2f)); //If VR Camera not found then trouble occurs
+            if(distanceToTarget > stoppingRange && pursuing){
+                anim.applyRootMotion = false;
+                navMeshAgent.SetDestination(target.position);
+                anim.SetBool("pursuit", true);
+            }
+            else if(distanceToTarget < resumeRange){
+                navMeshAgent.ResetPath();
+                anim.SetBool("pursuit", false);
+                Invoke("ApplyRootMotion", 1.5f);
+                FaceTarget(target.position);
+                pursuing = false;
+                //transform.rotation.SetLookRotation(target.position - transform.position); 
+                //transform.rotation = Quaternion.Lerp(transform.rotation, rotationIncrement, Time.time * turningSpeed);
+            }
+            else{
+                pursuing = true;
+            }
         }
+    }
+    private void ApplyRootMotion(){
+        anim.applyRootMotion = true;
+    }
+
+    void BoardTrain(){
+         target = GameObject.Find("TedTrainSpot").transform;
+         boarding = true;
     }
     private void FaceTarget(Vector3 destination)
     {
@@ -90,7 +102,7 @@ public class CreepyAIPlatform : MonoBehaviour
             anim.SetFloat("TedTurn", 0);
             anim.SetTrigger("TurnAround");
         }   
-        Debug.Log(angleDiff);  
+        //Debug.Log(angleDiff);  
         if(angleDiff < 15 && angleDiff > -15){
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed);  
         }
@@ -137,4 +149,32 @@ public class CreepyAIPlatform : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, stoppingRange);
     }
+
+    // void OnTriggerEnter(Collider other){
+    //     contact = true;
+    //     if(other.name == "HeadCollider"){
+    //         anim.SetBool("Contact", true);
+    //     }
+    //     Debug.Log("Bump");
+    // }
+
+    // void OnTriggerStay(Collider other){
+    //     if(!contact && other.name == "HeadCollider"){
+    //         anim.SetBool("Contact", true);
+    //         contact = true;
+    //         Debug.Log("Re-Engaged");
+    //     }
+    // }
+
+    // void OnTriggerLeave(Collider other){
+    //     if(other.name == "HeadCollider"){
+    //         contact = false;
+    //         Invoke("TurnOffContact", 0.2f);
+    //     }
+    // }
+    // void TurnOffContact(){
+    //     if(contact == false){
+    //         anim.SetBool("Contact", false);
+    //     }
+    // }
 }
