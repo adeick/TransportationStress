@@ -63,12 +63,12 @@ public class CreepyAIElevator : MonoBehaviour
     }
 
     public void LeaveElevator1(){
-        //anim.applyRootMotion = true; //shouldn't change anything 
+        anim.applyRootMotion = true; 
         anim.SetTrigger("LeaveElevator");
         Invoke("LeaveElevator2", 1.5f);
     }
     public void LeaveElevator2(){
-        anim.applyRootMotion = false;
+        //anim.applyRootMotion = false;
         target = exitTarget;
         pursuit = true;
     }
